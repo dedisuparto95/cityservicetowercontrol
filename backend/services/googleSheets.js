@@ -1,10 +1,14 @@
 const { google } = require('googleapis');
 require('dotenv').config();
 
+// Memanggil dan membaca file JSON secara utuh dari Vercel
+// Pastikan variabel GOOGLE_CREDS_JSON sudah ada di Vercel dan berisi SELURUH teks JSON
+const creds = JSON.parse(process.env.GOOGLE_CREDS_JSON);
+
 const auth = new google.auth.GoogleAuth({
     credentials: {
-        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n').replace(/"/g, '')
+        client_email: creds.client_email,
+        private_key: creds.private_key
     },
     scopes: ['https://www.googleapis.com/auth/spreadsheets']
 });
