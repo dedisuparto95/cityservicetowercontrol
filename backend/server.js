@@ -27,6 +27,11 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 // ----------------------------------
 
+// Tambahkan rute untuk halaman utama (root)
+app.get('/', (req, res) => {
+    res.send('API City Service Berjalan Normal Vercel!');
+});
+
 app.get('/api/health', (req, res) => {
     res.json({ status: 'OK', message: 'Mesin Backend CITY SERVICE menyala!' });
 });
