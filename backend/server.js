@@ -50,3 +50,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server Backend berjalan di port ${PORT}`);
 });
+
+// --- WAJIB UNTUK VERCEL ---
+module.exports = app;
